@@ -1,3 +1,26 @@
 body {
   font-family: sans-serif;
+  background-color: #E0FFFF	;
+}
+h1{
+  align-items: center;
+  text-align: center ;
+}
+.grid {
+  display: grid;
+  grid-template: repeat(2,400px)/repeat(3,1fr);
+  grid-gap: 2%;
+  align-content: center;
+  margin: 0;
+  background-color: #AFEEEE;
+
+}
+
+#pokemon-item{
+  border: 1px solid black;
+  text-align: center;
+  height: 97%;
+  background-color: #5F9EA0	;
+  box-shadow: 10px 10px grey;
+
 }
