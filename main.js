@@ -181,7 +181,10 @@ function pokemonClickableChoices(obj){
   para.style.textAlign  = "center";
   var str = "name: " + obj.name + "\r"
   str += "hp: " + obj.hp + "\n"
-  str += "atk: " + obj.atk + "\n"
+  str += "atk: " + obj.atk + "\n" + "abilities: "
+  for(let i = 0 ; i < obj.abilities.length; i++){
+str += obj.abilities[i] + " "
+  }
   var node = document.createTextNode(str);
   para.appendChild(node);
 
@@ -192,8 +195,8 @@ function pokemonClickableChoices(obj){
    pokemon = {
      name: obj.name,
      image: obj.image,
-     hp:  this.hp,
-     atk: this.atk,
+     hp:  obj.hp,
+     atk: obj.atk,
      abilities: obj.abilities
 
    }
