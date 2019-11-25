@@ -11,10 +11,6 @@ var input = document.getElementById("filed1").value
 
 
 
-document.getElementById('FormNameInputshow').addEventListener('submit', function(e){
-  e.preventDefault();
-  SubmitNameOrId()
-}, false);
 elem = 0
 
 var div = document.createElement("div")
@@ -52,7 +48,12 @@ function formTeam(){
   gridChoices.style.display= "grid";
 }
 
+// to prevent preventDefault
+document.getElementById('FormNameInputshow').addEventListener('submit', function(e){
+  e.preventDefault();
 
+}, false);
+// TO SUBMIT THE INFO
 function SubmitNameOrId() {
 
   gridChoices.style.display= "none";
