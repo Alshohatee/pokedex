@@ -6,15 +6,41 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <h1>The pokemon of name are:  </h1>
-  <div class="grid">
-    <div id="pokemon-item"> 1</div>
-    <div id="pokemon-item"> 2</div>
-    <div id="pokemon-item"> 3</div>
-    <div id="pokemon-item"> 4</div>
-    <div id="pokemon-item"> 5</div>
-    <div id="pokemon-item"> 6</div>
-  </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <h1>Pokedex</h1>
+    <div id="hadder1">
+
+         <div  class = "navbar-item" onclick  = "goHome()">Home</div>
+         <div  class = "navbar-item" onclick  = "formTeam()">Form a team </div>
+         <div  class = "navbar-item" onclick  = "searchByName()">search for pokemon by name </div>
+         <div  class = "navbar-item" onclick  = "searchbyid()"> search for pokemon by id</div>
+
+    </div>
+
+
+
+    <div id = "FormNameInputshow">
+
+      <h2 id = "FormMessage">Enter Your name  </h2>
+      <form id="FormName" >
+        First name: <input id = "filed1"type="text" name="fname"><br>
+        <input type="button" onclick="SubmitNameOrId()" value="Submit">
+      </form>
+
+    </div>
+
+
+
+
+<!-- pokemon Choices -->
+      <div id="grid">
+      </div>
+
+      <!-- userPick -->
+      <div id="userpo">
+
+      </div>
 
     <script src="main.js"></script>
   </body>

@@ -1,26 +1,55 @@
 body {
   font-family: sans-serif;
-  background-color: #E0FFFF	;
+  margin: 0;
+  background-image: url('https://cdn.dribbble.com/users/1363206/screenshots/5497614/pokedex_dribbble-01_4x.jpg');
+
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+
+/********************************** header *********************/
+
+
+
+#hadder1{
+  display: grid;
+  grid-template: auto / repeat(4, 25%);
+  grid-gap: 3px;
+  background: yellow;
+
+}
+.navbar-item{
+  background-color: red;
+}
+
 h1{
-  align-items: center;
+ background-color: red;
+ margin: 0;
   text-align: center ;
 }
-.grid {
+
+#grid {
   display: grid;
-  grid-template: repeat(2,400px)/repeat(3,1fr);
-  grid-gap: 2%;
-  align-content: center;
+  grid-template: repeat(50,200px)/repeat(3,1fr);
+  height: auto;
   margin: 0;
   background-color: #AFEEEE;
+}
 
+.grid1 {
+  display: grid;
+  grid-template: repeat(50,200px)/repeat(3,1fr);
+  /* display: block; */
+  height: 1000px;
+  margin: 0;
+  background-color: #AFEEEE;
 }
 
 #pokemon-item{
   border: 1px solid black;
   text-align: center;
-  height: 97%;
   background-color: #5F9EA0	;
   box-shadow: 10px 10px grey;
-
 }
