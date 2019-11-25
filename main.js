@@ -1,12 +1,20 @@
 //makeing the nav bar go to different places
-// let containerdiv = document.getElementById("grid")
+
 let nameInputMessage = document.getElementById("FormMessage")
 var FormName = document.getElementById("FormName")
 var gridChoices = document.getElementById("grid")
-// var userPokemon = document.getElementById("grid")
+
 var searchById = document.getElementById("search-byid")
 var userPokemonDiv = document.getElementById("userpo")
 var input = document.getElementById("filed1").value
+
+
+
+
+document.getElementById('FormNameInputshow').addEventListener('submit', function(e){
+  e.preventDefault();
+  SubmitNameOrId()
+}, false);
 elem = 0
 
 var div = document.createElement("div")
@@ -46,6 +54,7 @@ function formTeam(){
 
 
 function SubmitNameOrId() {
+
   gridChoices.style.display= "none";
   nameInputMessage.style.display= "block";
   FormName.style.display = "block"
@@ -55,8 +64,9 @@ function SubmitNameOrId() {
     nameInputMessage.innerText = `Hello ${input}`
   }else  if (input != "" && nameInputMessage.innerText == "Enter Pokemon name:"){
 
-    nameInputMessage.innerText += `\n ${input} was added.`
     getPokeomByName(input,  "chosen")
+    nameInputMessage.innerText += `\n ${input} was added.`
+    console.log("ase");
 
   }
   else if(input != "" && nameInputMessage.innerText == "Enter Pokemon ID:"){
@@ -94,6 +104,7 @@ function searchbyid(){
 
 function creating150Choices(){
   for(let i = 1; i < 150 ; i++){
+
     getPokeomByID(i,"choices")
 
   }
@@ -266,6 +277,7 @@ function getPokeomByID(id,functionDcicder) {
     if (this.readyState == 4 && this.status == 200) {
       let text = this.responseText
       let data = JSON.parse(text)
+      console.log(id);
 
       let abilitiesHolder = []
       for (let i = 0 ; i < data.abilities.length; i++){
@@ -276,6 +288,7 @@ function getPokeomByID(id,functionDcicder) {
       if(functionDcicder =="choices"){
         new Pokemon( data, abilitiesHolder).drawingObj();
       }else if (functionDcicder == "chosen"){
+        console.log("adsfasd");
         userPokemonsDiv(new Pokemon(data, abilitiesHolder))
       }
     }
@@ -300,6 +313,7 @@ function getPokeomByName(name,functionDcicder) {
       if(functionDcicder =="choices"){
         new Pokemon( data, abilitiesHolder).drawingObj();
       }else if (functionDcicder == "chosen"){
+        console.log("ase1");
         userPokemonsDiv(new Pokemon(data, abilitiesHolder))
       }
     }
@@ -339,6 +353,13 @@ console.log(hp, atk, name);
 })
 }
 
+function getingPokemonDetailsID(i){
+axios.get(`https://fizal.me/pokeapi/api/v2/id/${i}.json`)
+.then(function (res){
+// user (new Pokemon(res))
+new Pokemon( res).drawingObj(res);
+})
+}
 
 
 function queryPokemonAPIName (name){
@@ -359,13 +380,6 @@ console.log(name);
 })
 }
 
-function getingPokemonDetailsID(i){
-axios.get(`https://fizal.me/pokeapi/api/v2/id/${i}.json`)
-.then(function (res){
-// user (new Pokemon(res))
-new Pokemon( res).drawingObj(res);
-})
-}
 function getingPokemonDetailsIDSingle(i){
 axios.get(`https://fizal.me/pokeapi/api/v2/id/${i}.json`)
 .then(function (res){
