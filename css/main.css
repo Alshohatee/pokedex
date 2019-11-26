@@ -3,7 +3,6 @@ body {
   margin: 0;
   background-image: url('https://cdn.dribbble.com/users/1363206/screenshots/5497614/pokedex_dribbble-01_4x.jpg');
 
-
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -25,8 +24,8 @@ body {
 }
 
 h1{
- background-color: red;
- margin: 0;
+  background-color: red;
+  margin: 0;
   text-align: center ;
 }
 #SelectSixheader{

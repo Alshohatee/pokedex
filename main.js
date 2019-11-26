@@ -68,7 +68,10 @@ function SubmitNameOrId() {
   var input = document.getElementById("filed1").value
 
   if( input != "" && nameInputMessage.innerText == "Enter your name:"){
-    nameInputMessage.innerText = `Hello ${input}`
+    if(document.getElementById("filed1").value != ""){
+        t.name = document.getElementById("filed1").value
+        nameInputMessage.innerText = `Hello ${input}`
+    }
   }else  if (input != "" && nameInputMessage.innerText == "Enter Pokemon name:"){
 var index = 0
 do {
@@ -159,13 +162,7 @@ class Trainer {
   }
 }
 
-if(document.getElementById("filed1").value != ""){
-  var  t = new Trainer(document.getElementById("filed1").value)
-}
-else {
-  var  t = new Trainer("Aseel")
 
-}
 
 class Pokemon {
   constructor(data, abilitiesHolder){
@@ -182,6 +179,7 @@ class Pokemon {
 
 
 }
+   t = new Trainer("Aseel")
 
 /*****************************************************************************
 ***********************************display*******************************************
@@ -318,7 +316,6 @@ function getPokeomByID(id,functionDcicder) {
       if(functionDcicder =="choices"){
         new Pokemon( data, abilitiesHolder).drawingObj();
       }else if (functionDcicder == "chosen"){
-        console.log("adsfasd");
         userPokemonsDiv(new Pokemon(data, abilitiesHolder))
       }
     }
