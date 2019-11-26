@@ -225,7 +225,9 @@ str += obj.abilities[i] + " "
   div1.appendChild(para);
   div1.addEventListener("click", ()=>{
     div1.style.backgroundImage = "url('https://www.trzcacak.rs/myfile/detail/234-2343102_how-to-draw-poke-ball-drawing-easy-pokemon.png')";
-    div1.style.backgroundSize = "220px 200px";
+    div1.style.backgroundSize = "100% 100%";
+    div1.style.backgroundRepeat  = "no-repeat";
+
     elem++
 
 //becuase we can not push obj back so we create an objects

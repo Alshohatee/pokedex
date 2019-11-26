@@ -1,8 +1,10 @@
+
+
 body {
   font-family: sans-serif;
+
   margin: 0;
   background-image: url('https://cdn.dribbble.com/users/1363206/screenshots/5497614/pokedex_dribbble-01_4x.jpg');
-
   background-repeat: no-repeat;
   background-size: cover;
 }
