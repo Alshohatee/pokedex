@@ -153,11 +153,7 @@ class Trainer {
     return this.pokemonList
   }
 
-  get(name){
-
-  }
-
-  add(object){
+  get(object){
     this.pokemonList.push(object)
   }
 }
@@ -250,7 +246,7 @@ if(i != obj.abilities.length){
 
    }
 
-    t.add(pokemon)
+    t.get(pokemon)
 
     if(elem ==  6){
 chosenPokemon.style.display= "block"
@@ -333,7 +329,7 @@ function getPokeomByID(id,functionDcicder) {
     if (this.readyState == 4 && this.status == 200) {
       let text = this.responseText
       let data = JSON.parse(text)
-      console.log(id);
+
       allowedPokemonName.push(data.name);
 
       let abilitiesHolder = []
@@ -369,7 +365,7 @@ function getPokeomByName(name,functionDcicder) {
       if(functionDcicder =="choices"){
         new Pokemon( data, abilitiesHolder).drawingObj();
       }else if (functionDcicder == "chosen"){
-        console.log("ase1");
+
         userPokemonsDiv(new Pokemon(data, abilitiesHolder))
       }
     }
