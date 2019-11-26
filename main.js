@@ -1,5 +1,5 @@
 //makeing the nav bar go to different places
-
+allowedPokemonName = []
 let nameInputMessage = document.getElementById("FormMessage")
 var FormName = document.getElementById("FormName")
 var gridChoices = document.getElementById("grid")
@@ -70,10 +70,22 @@ function SubmitNameOrId() {
   if( input != "" && nameInputMessage.innerText == "Enter your name:"){
     nameInputMessage.innerText = `Hello ${input}`
   }else  if (input != "" && nameInputMessage.innerText == "Enter Pokemon name:"){
-
+var index = 0
+do {
+  if(allowedPokemonName[index]!=input){
+    nameInputMessage.innerText = "Enter Pokemon name again:"
+    console.log(nameInputMessage.innerText );
+    found = false
+  }else {
     getPokeomByName(input,  "chosen")
     nameInputMessage.innerText += `\n ${input} was added.`
-    console.log("ase");
+    break;
+  }
+
+index++
+}while(!found && index < 150);
+
+
 
   }
   else if(input != "" && nameInputMessage.innerText == "Enter Pokemon ID:"){
@@ -82,7 +94,7 @@ function SubmitNameOrId() {
       nameInputMessage.innerText += `\n ${input} was added.`
       getPokeomByID(input, "chosen")
     }else {
-      ameInputMessage.innerText += `\n ${input} was not available.`
+      nameInputMessage.innerText += `\n ${input} was not available.`
     }
   }
 }
@@ -295,6 +307,7 @@ function getPokeomByID(id,functionDcicder) {
       let text = this.responseText
       let data = JSON.parse(text)
       console.log(id);
+      allowedPokemonName.push(data.name);
 
       let abilitiesHolder = []
       for (let i = 0 ; i < data.abilities.length; i++){
