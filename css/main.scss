@@ -1,12 +1,13 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background-image: url("https://cdn.dribbble.com/users/1363206/screenshots/5497614/pokedex_dribbble-01_4x.jpg");
+  background-image: url('https://cdn.dribbble.com/users/1363206/screenshots/5497614/pokedex_dribbble-01_4x.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 /********************************** header *********************/
+
 .navbar-item:hover {
   background-color: #8B0000;
   font-weight: bold;
@@ -14,7 +15,7 @@ body {
 
 #hadder1 {
   display: grid;
-  grid-template: auto/repeat(4, 25%);
+  grid-template: auto / repeat(4, 25%);
   grid-gap: 3px;
   background: yellow;
 }
@@ -38,7 +39,7 @@ h1 {
 #grid {
   display: grid;
   opacity: 0.9;
-  grid-template: repeat(50, 200px)/repeat(3, 1fr);
+  grid-template: repeat(50, 200px) / repeat(3, 1fr);
   grid-gap: 40px;
   height: auto;
   margin: 0;
@@ -52,7 +53,8 @@ div > div > * {
 .grid1 {
   display: grid;
   opacity: 0.9;
-  grid-template: repeat(50, 200px)/repeat(3, 1fr);
+  grid-template: repeat(50, 200px) / repeat(3, 1fr);
+
   /* display: block; */
   grid-gap: 3%;
   height: 500px;
@@ -66,5 +68,3 @@ div > div > * {
   background-color: #5F9EA0;
   box-shadow: 10px 10px grey;
 }
-
-/*# sourceMappingURL=main.css.map */
