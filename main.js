@@ -201,28 +201,38 @@ function pokemonClickableChoices(obj){
 
 
   // creating image feild
-  var x = document.createElement("IMG");
-  x.src = obj.image
-  x.style.display ="block";
-  x.style.margin = "0 auto";
-  x.style.textAlign  = "center";
-
-  div1.appendChild(x);
+  var img = document.createElement("IMG");
+  img.src = obj.image
+  img.style.display ="block";
+  img.style.margin = "0 auto";
+  div1.appendChild(img);
 
 
-  var para = document.createElement("p");
-  para.style.color ="white";
-  para.style.textAlign  = "center";
-  var str = "name: " + obj.name + "\r"
-  str += "hp: " + obj.hp + "\n"
-  str += "atk: " + obj.atk + "\n" + "abilities: "
+
+
+  var nameh5 = document.createElement("h5");
+  nameh5.innerText = obj.name
+  nameh5.style.margin = "0"
+
+  div1.appendChild(nameh5);
+
+  var stats = document.createElement("p");
+  stats.innerText = "HP: "  + obj.hp + " atk: " + obj.atk
+  div1.appendChild(stats);
+
+  var str =  "Abilities: "
   for(let i = 0 ; i < obj.abilities.length; i++){
-str += obj.abilities[i] + " "
-  }
-  var node = document.createTextNode(str);
-  para.appendChild(node);
+    let x = (i+1)
+if(i != obj.abilities.length){
+  str += obj.abilities[i] + ", "
+}
 
-  div1.appendChild(para);
+  }
+  str += obj.abilities[obj.abilities.length-1] + "."
+  var ailities = document.createElement("p");
+  ailities.innerText = str
+  div1.appendChild(ailities);
+
   div1.addEventListener("click", ()=>{
     div1.style.backgroundImage = "url('https://www.trzcacak.rs/myfile/detail/234-2343102_how-to-draw-poke-ball-drawing-easy-pokemon.png')";
     div1.style.backgroundSize = "100% 100%";
@@ -261,7 +271,7 @@ chosenPokemon.style.display= "block"
   });
 }
 
-function userPokemonsDiv(object){
+function userPokemonsDiv(obj){
   userPokemonDiv.style.display = "grid"
   userPokemonDiv.classList.add("grid1")
   var div1 = document.createElement("div");
@@ -275,24 +285,41 @@ function userPokemonsDiv(object){
   document.getElementById("userpo").appendChild(div1);
 
   // creating image feild
-  var x = document.createElement("IMG");
-  x.src = `https://play.pokemonshowdown.com/sprites/xyani-shiny/${object.name}.gif`
-  // x.src = `${object.image}`
-  x.style.display ="block";
-  x.style.margin = "0 auto";
-  x.style.textAlign  = "center";
 
-  div1.appendChild(x);
+  var img = document.createElement("IMG");
+  img.src = `https://play.pokemonshowdown.com/sprites/xyani-shiny/${obj.name}.gif`
+  img.style.display ="block";
+  img.style.margin = "0 auto";
+  div1.appendChild(img);
 
-  var para = document.createElement("p");
-  para.style.color ="white";
-  para.style.textAlign  = "center";
-  var str = "name: " + object.name + "\r"
-  str += "hp: " + object.hp + "\n"
-  str += "atk: " + object.atk + "\n"
-  var node = document.createTextNode(str);
-  para.appendChild(node);
-  div1.appendChild(para);
+
+
+
+  var nameh5 = document.createElement("h5");
+  nameh5.innerText = obj.name
+  nameh5.style.margin = "0"
+
+  div1.appendChild(nameh5);
+
+  var stats = document.createElement("p");
+  stats.innerText = "HP: "  + obj.hp + " atk: " + obj.atk
+  div1.appendChild(stats);
+
+  var str =  "Abilities: "
+  for(let i = 0 ; i < obj.abilities.length; i++){
+    let x = (i+1)
+if(i != obj.abilities.length){
+  str += obj.abilities[i] + ", "
+}
+
+  }
+  str += obj.abilities[obj.abilities.length-1] + "."
+  var abilities = document.createElement("p");
+  abilities.innerText = str
+
+
+  div1.appendChild(abilities);
+
 }
 
 

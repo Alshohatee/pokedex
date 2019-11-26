@@ -51,7 +51,9 @@ h1{
   background-color: #CC1111;
 
 }
-
+div > div > * {
+  text-align: center;
+}
 .grid1 {
   display: grid;
   opacity: 0.9;
