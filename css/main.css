@@ -29,20 +29,35 @@ h1{
  margin: 0;
   text-align: center ;
 }
+#SelectSixheader{
+  display: none;
+  margin: 0;
+  text-align: center ;
+}
+#chosenPokemon{
+  display: none;
+  margin: 0;
+  text-align: center ;
+}
 
 #grid {
   display: grid;
+  opacity: 0.9;
   grid-template: repeat(50,200px)/repeat(3,1fr);
+  grid-gap: 40px;
   height: auto;
   margin: 0;
-  background-color: #AFEEEE;
+  background-color: #CC1111;
+
 }
 
 .grid1 {
   display: grid;
+  opacity: 0.9;
   grid-template: repeat(50,200px)/repeat(3,1fr);
   /* display: block; */
-  height: 1000px;
+  grid-gap: 3%;
+  height: 500px;
   margin: 0;
   background-color: #AFEEEE;
 }

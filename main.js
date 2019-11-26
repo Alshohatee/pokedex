@@ -3,6 +3,8 @@
 let nameInputMessage = document.getElementById("FormMessage")
 var FormName = document.getElementById("FormName")
 var gridChoices = document.getElementById("grid")
+var selectSixheader = document.getElementById("SelectSixheader")
+var chosenPokemon = document.getElementById("chosenPokemon")
 
 var searchById = document.getElementById("search-byid")
 var userPokemonDiv = document.getElementById("userpo")
@@ -34,6 +36,8 @@ nav bar function
 ********************************************************************************/
 function goHome() {
   div.style.display= "block"
+  selectSixheader.style.display= "none"
+  chosenPokemon.style.display= "none"
   FormName.style.display= "none";
   userPokemonDiv.style.display= "none";
   nameInputMessage.style.display= "none";
@@ -42,6 +46,8 @@ function goHome() {
 
 function formTeam(){
   div.style.display= "none"
+  chosenPokemon.style.display= "none"
+  SelectSixheader.style.display= "block"
   nameInputMessage.style.display= "block";
   nameInputMessage.innerText = "Enter your name:"
   FormName.style.display= "block";
@@ -82,7 +88,9 @@ function SubmitNameOrId() {
 }
 
 function searchByName(){
+
   div.style.display= "none"
+  chosenPokemon.style.display= "block"
   gridChoices.style.display= "none";
   userPokemonDiv.style.display= "grid"
   gridChoices.style.display= "none"
@@ -94,6 +102,7 @@ function searchByName(){
 
 function searchbyid(){
   div.style.display= "none"
+    chosenPokemon.style.display= "block"
   gridChoices.style.display= "none";
   userPokemonDiv.style.display= "grid"
   gridChoices.style.display= "none"
@@ -167,16 +176,19 @@ class Pokemon {
 ******************************************************************************/
 function pokemonClickableChoices(obj){
 
+
   var div1 = document.createElement("div");
+
   // div1.id = 1
   div1.style.height = "97%";
   div1.style.background = "#5F9EA0";
-  div1.style.color = "white";
-  div1.style.margin = "0";
   div1.style.alignItems  = "center";
-  div1.style.border = "1px solid #000000";
-  div1.style.boxShadow  = "10px 10px grey";
+  div1.style.borderRadius = "25px";
+  div1.style.boxShadow  = "0 1px 6px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.24)";
+  div1.style.cursor = "pointer";
+
   document.getElementById("grid").appendChild(div1);
+
 
   // creating image feild
   var x = document.createElement("IMG");
@@ -202,7 +214,10 @@ str += obj.abilities[i] + " "
 
   div1.appendChild(para);
   div1.addEventListener("click", ()=>{
+    div1.style.backgroundImage = "url('https://www.trzcacak.rs/myfile/detail/234-2343102_how-to-draw-poke-ball-drawing-easy-pokemon.png')";
+    div1.style.backgroundSize = "220px 200px";
     elem++
+
 //becuase we can not push obj back so we create an objects
    pokemon = {
      name: obj.name,
@@ -216,6 +231,7 @@ str += obj.abilities[i] + " "
     t.add(pokemon)
 
     if(elem ==  6){
+chosenPokemon.style.display= "block"
       console.log(elem);
 
 
