@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Pokedex</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-
     <h1>Pokedex</h1>
     <div id="hadder1">
-
-         <div  class = "navbar-item" onclick  = "goHome()">Home</div>
-         <div  class = "navbar-item" onclick  = "formTeam()">Form a team </div>
-         <div  class = "navbar-item" onclick  = "searchByName()">search for pokemon by name </div>
-         <div  class = "navbar-item" onclick  = "searchbyid()"> search for pokemon by id</div>
-
+      <div class="navbar-item" onclick="goHome()">Home</div>
+      <div class="navbar-item" onclick="formTeam()">Form a team</div>
+      <div class="navbar-item" onclick="searchByName()">
+        search for pokemon by name
+      </div>
+      <div class="navbar-item" onclick="searchbyid()">
+        search for pokemon by id
+      </div>
     </div>
 
-
-
-    <div id = "FormNameInputshow">
-
-      <h2 id = "SelectSixheader">Choose 6 Pokemon</h2>
-      <h2 id = "FormMessage">Enter Your name  </h2>
-      <form id="FormName" >
-        First name: <input id = "filed1"type="text" name="fname"><br>
-        <input type="button" onclick="SubmitNameOrId()" id = "submitBtn" value="Submit">
+    <div id="FormNameInputshow">
+      <h2 id="SelectSixheader">Choose 6 Pokemon</h2>
+      <h2 id="FormMessage">Enter Your name</h2>
+      <form id="FormName">
+        First name: <input id="filed1" type="text" name="fname" /><br />
+        <input
+          type="button"
+          onclick="SubmitNameOrId()"
+          id="submitBtn"
+          value="Submit"
+        />
       </form>
-      <h2 id = "chosenPokemon"> Your Pokemon:</h2>
+      <h2 id="chosenPokemon">Your Pokemon:</h2>
     </div>
 
+    <!-- pokemon Choices -->
+    <div id="grid"></div>
 
-
-
-<!-- pokemon Choices -->
-      <div id="grid">
-      </div>
-
-      <!-- userPick -->
-      <div id="userpo">
-      </div>
+    <!-- userPick -->
+    <div id="userpo"></div>
 
     <script src="main.js"></script>
   </body>

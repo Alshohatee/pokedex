@@ -8,7 +8,7 @@ body {
 
 /********************************** header *********************/
 .navbar-item:hover {
-  background-color: #8B0000;
+  background-color: #8b0000;
   font-weight: bold;
 }
 
@@ -29,7 +29,8 @@ h1 {
   text-align: center;
 }
 
-#SelectSixheader, #chosenPokemon {
+#SelectSixheader,
+#chosenPokemon {
   display: none;
   margin: 0;
   text-align: center;
@@ -38,11 +39,11 @@ h1 {
 #grid {
   display: grid;
   opacity: 0.9;
-  grid-template: repeat(50, 200px)/repeat(3, 1fr);
+  grid-template: repeat(50, 200px) / repeat(3, 1fr);
   grid-gap: 40px;
   height: auto;
   margin: 0;
-  background-color: #CC1111;
+  background-color: #cc1111;
 }
 
 div > div > * {
@@ -52,18 +53,18 @@ div > div > * {
 .grid1 {
   display: grid;
   opacity: 0.9;
-  grid-template: repeat(50, 200px)/repeat(3, 1fr);
+  grid-template: repeat(50, 200px) / repeat(3, 1fr);
   /* display: block; */
   grid-gap: 3%;
   height: 500px;
   margin: 0;
-  background-color: #AFEEEE;
+  background-color: #afeeee;
 }
 
 #pokemon-item {
   border: 1px solid black;
   text-align: center;
-  background-color: #5F9EA0;
+  background-color: #5f9ea0;
   box-shadow: 10px 10px grey;
 }
 
