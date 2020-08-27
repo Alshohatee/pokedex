@@ -9,8 +9,7 @@
 ### Table of Contents
 
 - [Description](#description)
-- [How To Use](#how-to-use)
-- [References](#references)
+- [Live Demo ](#live-demo)
 - [Author Info](#author-info)
 
 ---
@@ -31,7 +30,7 @@ This is the pokedex website. Here you can search for the pokemon that you like b
 
 ---
 
-## How To Use
+## Live Demo
 
 - The live demo - [Pokedex](https://alshohatee.github.io/pokedex/)
 
