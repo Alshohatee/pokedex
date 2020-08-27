@@ -40,6 +40,6 @@ This is the pokedex website. Here you can search for the pokemon that you like b
 
 ## Author Info
 
-- linkedin - [@aseel-alshohatee](www.linkedin.com/in/aseel-alshohatee)
+- linkedin - [@aseel-alshohatee](https://www.linkedin.com/in/aseel-alshohatee/)
 
 [Back To The Top](#read-me-template)
