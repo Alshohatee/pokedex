@@ -1,6 +1,6 @@
 # Pokedex
 
-![Project Image]()
+![Project Image](/css/website.png)
 
 > An easy way to learn more about Pokémon.
 
