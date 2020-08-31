@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #e84749;
+  background-image: url("https://cdn.dribbble.com/users/1363206/screenshots/5497614/pokedex_dribbble-01_4x.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/********************************** header *********************/
+#header {
+  padding-top: 5px;
+  background-color: red;
+}
+
+/********************************** title *********************/
+h1 {
+  text-align: center;
+}
+
+/********************************** nav *********************/
+.navbar-item:hover {
+  font-weight: bold;
+}
+
+#nav {
+  display: grid;
+  grid-template: auto/repeat(4, 25%);
+  grid-gap: 3px;
+  background: yellow;
+}
+
+#nav :first-child {
+  margin-left: 2px;
+}
+
+.navbar-item {
+  background-color: red;
+  padding-left: 5px;
+}
