@@ -1,5 +1,5 @@
 //makeing the nav bar go to different places
-allowedPokemonName = [];
+var allowedPokemonName = [];
 let nameInputMessage = document.getElementById("FormMessage");
 var FormName = document.getElementById("FormName");
 var gridChoices = document.getElementById("grid");
@@ -11,6 +11,7 @@ var userPokemonDiv = document.getElementById("userpo");
 var input = document.getElementById("filed1").value;
 
 elem = 0;
+var teamOfSix = 6;
 
 var div = document.createElement("div");
 div.style.backgroundColor = "red";
@@ -59,6 +60,7 @@ document.getElementById("FormNameInputshow").addEventListener(
   },
   false
 );
+
 // TO SUBMIT THE INFO
 function SubmitNameOrId() {
   gridChoices.style.display = "none";
@@ -169,7 +171,7 @@ t = new Trainer("Aseel");
  ******************************************************************************/
 function pokemonClickableChoices(obj) {
   var div1 = document.createElement("div");
-
+  selectSixheader.innerHTML = `${teamOfSix} here`;
   // div1.id = 1
   div1.style.height = "97%";
   div1.style.background = "#5F9EA0";
@@ -217,7 +219,8 @@ function pokemonClickableChoices(obj) {
     div1.style.backgroundRepeat = "no-repeat";
 
     elem++;
-
+    teamOfSix--;
+    selectSixheader.innerHTML = `${teamOfSix} here`;
     //becuase we can not push obj back so we create an objects
     pokemon = {
       name: obj.name,
@@ -292,7 +295,7 @@ function userPokemonsDiv(obj) {
 }
 
 /*****************************************************************************
- ******************************************************************************
+                    GetPokeomByID AND GetPokeomByName
  ******************************************************************************/
 
 function getPokeomByID(id, functionDcicder) {
