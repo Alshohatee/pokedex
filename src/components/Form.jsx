@@ -46,11 +46,9 @@ class Form extends React.Component {
           type="button"
           value="submit"
           onClick={() => {
-            {
-              this.props.name === "name"
-                ? this.props.onClick(this.state.name)
-                : this.props.onClick(this.state.id);
-            }
+            this.props.name === "name"
+              ? this.props.onClick(this.state.name)
+              : this.props.onClick(this.state.id);
           }}
         />
       </form>

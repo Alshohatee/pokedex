@@ -48,9 +48,9 @@ class App extends React.Component {
       console.log(item[0].id);
       if (item[0].id === pokemon[0].id) {
         alreadyAdded = true;
-
-        return;
+        return alreadyAdded;
       }
+      return alreadyAdded;
     });
 
     if (alreadyAdded) {
@@ -79,17 +79,30 @@ class App extends React.Component {
   }
 
   async addByNameOrId(value) {
-    if (this.state.userPokemons.length == 6) return;
+    if (this.state.userPokemons.length === 6) return;
     var url = "";
-    if (typeof value === Number)
-      url = `https://fizal.me/pokeapi/api/v2/id/${value}.json`;
-    if (typeof value === String)
+    if (typeof value === "string") {
       url = `https://fizal.me/pokeapi/api/v2/name/${value}.json`;
+    }
+    if (Number(value)) {
+      url = `https://fizal.me/pokeapi/api/v2/id/${value}.json`;
+    }
+
     try {
       let response = await axios({
         method: "get",
-        url: `${url}`,
+        url: url,
       });
+      console.log(response.data);
+      console.log(response.data);
+      // var x = {
+      //   id: value,
+      //   name: response.data.name,
+      //   // imgUrl: response.data.sprites.front_default,
+      //   HP: response.data.stats[5].base_stat,
+      //   ATK: response.data.stats[4].base_stat,
+      // };
+
       this.handleClickCard([
         {
           id: value,
@@ -140,7 +153,7 @@ class App extends React.Component {
 
         {/* subHeader unders the Form a Team tap the team is already formed up */}
         {this.state.currentNav === "Form a Team" &&
-        this.state.userPokemons.length == 6 ? (
+        this.state.userPokemons.length === 6 ? (
           <SubHeaderInfo
             title="Your Team"
             subTitle={`Your team is made of ${this.state.userPokemons.length}`}
@@ -181,6 +194,24 @@ class App extends React.Component {
             : null}
 
           {this.state.userPokemons.length >= 6
+            ? this.state.userPokemons.map((item, index) => {
+                console.log(item[0].name);
+                return (
+                  <Card
+                    key={index}
+                    id={index}
+                    name={item[0].name}
+                    imgUrl={item[0].imgUrl}
+                    HP={item[0].HP}
+                    ATK={item[0].ATK}
+                  />
+                );
+              })
+            : null}
+
+          {this.state.userPokemons.length <= 6 &&
+          (this.state.currentNav === "Search for Pokemon by ID" ||
+            this.state.currentNav === "Search for Pokemon by Name")
             ? this.state.userPokemons.map((item, index) => {
                 console.log(item[0].name);
                 return (
