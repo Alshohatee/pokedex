@@ -25,6 +25,7 @@ This is the pokedex website. Here you can search for the pokemon that you like b
 - Sass
 - JavaScript
 - API
+- React
 
 [Back To The Top](#read-me-template)
 

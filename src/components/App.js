@@ -151,6 +151,7 @@ class App extends React.Component {
           />
         ) : null}
 
+        {/* subHeader unders the Form a Search for Pokemon by id or name */}
         {(this.state.currentNav === "Search for Pokemon by ID" ||
           this.state.currentNav === "Search for Pokemon by Name") &&
         this.state.userPokemons.length < 6 ? (
@@ -169,7 +170,7 @@ class App extends React.Component {
           />
         ) : null}
 
-        {/* subHeader unders the Search for Pokemon by Name */}
+        {/* subHeader unders Form the Search for Pokemon by Name */}
         {this.state.currentNav === "Search for Pokemon by Name" &&
         this.state.userPokemons.length < 6 ? (
           <Form
@@ -179,67 +180,72 @@ class App extends React.Component {
           />
         ) : null}
 
-        {/* subHeader unders the Search for Pokemon by id */}
+        {/* subHeader unders Form the Search for Pokemon by id */}
         {this.state.currentNav === "Search for Pokemon by ID" &&
         this.state.userPokemons.length < 6 ? (
           <Form label="Enter the ID: " name="id" onClick={this.addByNameOrId} />
         ) : null}
 
-        <div id="grid">
-          {this.state.pokemons &&
-          this.state.userPokemons.length < 6 &&
-          this.state.currentNav === "Form a Team"
-            ? this.state.pokemons.map((item, index) => {
-                return (
-                  <Card
-                    key={index}
-                    id={index}
-                    name={item.name}
-                    imgUrl={item.sprites.front_default}
-                    HP={item.stats[5].base_stat}
-                    ATK={item.stats[4].base_stat}
-                    onClick={this.handleClickCard}
-                  />
-                );
-              })
-            : null}
+        {/* The gird to show no not show */}
+        {this.state.currentNav !== "Home" && this.state.currentNav !== "" ? (
+          <div id="grid">
+            {this.state.pokemons &&
+            this.state.userPokemons.length < 6 &&
+            this.state.currentNav === "Form a Team" &&
+            this.state.currentNav !== "Home"
+              ? this.state.pokemons.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      id={index}
+                      name={item.name}
+                      imgUrl={item.sprites.front_default}
+                      HP={item.stats[5].base_stat}
+                      ATK={item.stats[4].base_stat}
+                      onClick={this.handleClickCard}
+                    />
+                  );
+                })
+              : null}
 
-          {this.state.userPokemons.length >= 6 &&
-          this.state.currentNav !== "Search for Pokemon by ID" &&
-          this.state.currentNav !== "Search for Pokemon by Name"
-            ? this.state.userPokemons.map((item, index) => {
-                console.log(item[0].name);
-                return (
-                  <Card
-                    key={index}
-                    id={index}
-                    name={item[0].name}
-                    imgUrl={item[0].imgUrl}
-                    HP={item[0].HP}
-                    ATK={item[0].ATK}
-                  />
-                );
-              })
-            : null}
+            {this.state.userPokemons.length >= 6 &&
+            this.state.currentNav !== "Search for Pokemon by ID" &&
+            this.state.currentNav !== "Search for Pokemon by Name"
+              ? this.state.userPokemons.map((item, index) => {
+                  console.log(item[0].name);
+                  return (
+                    <Card
+                      key={index}
+                      id={index}
+                      name={item[0].name}
+                      imgUrl={item[0].imgUrl}
+                      HP={item[0].HP}
+                      ATK={item[0].ATK}
+                    />
+                  );
+                })
+              : null}
 
-          {this.state.userPokemons.length <= 6 &&
-          (this.state.currentNav === "Search for Pokemon by ID" ||
-            this.state.currentNav === "Search for Pokemon by Name")
-            ? this.state.userPokemons.map((item, index) => {
-                console.log(item[0].name);
-                return (
-                  <Card
-                    key={index}
-                    id={index}
-                    name={item[0].name}
-                    imgUrl={item[0].imgUrl}
-                    HP={item[0].HP}
-                    ATK={item[0].ATK}
-                  />
-                );
-              })
-            : null}
-        </div>
+            {this.state.userPokemons.length <= 6 &&
+            (this.state.currentNav === "Search for Pokemon by ID" ||
+              this.state.currentNav === "Search for Pokemon by Name") &&
+            (this.state.currentNav !== "Home" || this.state.currentNav !== " ")
+              ? this.state.userPokemons.map((item, index) => {
+                  console.log(item[0].name);
+                  return (
+                    <Card
+                      key={index}
+                      id={index}
+                      name={item[0].name}
+                      imgUrl={item[0].imgUrl}
+                      HP={item[0].HP}
+                      ATK={item[0].ATK}
+                    />
+                  );
+                })
+              : null}
+          </div>
+        ) : null}
       </div>
     );
   }
