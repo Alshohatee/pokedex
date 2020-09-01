@@ -3,7 +3,7 @@ import React from "react";
 function Card(props) {
   return (
     <div
-      id="pokemon-item"
+      className="pokemon-item"
       onClick={(e) => {
         props.onClick
           ? props.onClick([

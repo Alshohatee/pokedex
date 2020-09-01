@@ -4,6 +4,7 @@ import Header from "./Header";
 import Card from "./Card";
 import SubHeaderInfo from "./SubHeaderInfo";
 import Form from "./Form";
+import Info from "./Info";
 
 class App extends React.Component {
   constructor() {
@@ -245,7 +246,24 @@ class App extends React.Component {
                 })
               : null}
           </div>
-        ) : null}
+        ) : (
+          <div className="grid-info">
+            <Info
+              title="Form a Team by Clicking"
+              imgUrl={process.env.PUBLIC_URL + "/vidoes/info1.mov"}
+            />
+
+            <Info
+              title="Form a Team  by Entering Name"
+              imgUrl={process.env.PUBLIC_URL + "/vidoes/info2.mov"}
+            />
+
+            <Info
+              title="Form a Team  by Entering Id"
+              imgUrl={process.env.PUBLIC_URL + "/vidoes/info3.mov"}
+            />
+          </div>
+        )}
       </div>
     );
   }
