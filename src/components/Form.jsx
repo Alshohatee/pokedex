@@ -25,12 +25,14 @@ class Form extends React.Component {
     return (
       <form>
         <label>
-          {this.props.label}
+          <p>{this.props.label}</p>
+
           {this.props.name === "name" ? (
             <input
               name="name"
               type="text"
               value={this.state.name}
+              placeholder={`name`}
               onChange={this.handleInputChange}
             />
           ) : (
@@ -38,11 +40,13 @@ class Form extends React.Component {
               name="id"
               type="number"
               value={this.state.id}
+              placeholder={`ID`}
               onChange={this.handleInputChange}
             />
           )}
         </label>
         <input
+          className="input-button"
           type="button"
           value="submit"
           onClick={() => {
