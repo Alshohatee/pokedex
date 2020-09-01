@@ -10,10 +10,12 @@ class App extends React.Component {
     this.state = {
       pokemons: [],
       userPokemons: [],
+      currentNav: "",
     };
 
     this.fetchPokemonApi = this.fetchPokemonApi.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickCard = this.handleClickCard.bind(this);
+    this.handleClickOnHeader = this.handleClickOnHeader.bind(this);
   }
 
   async fetchPokemonApi() {
@@ -38,7 +40,7 @@ class App extends React.Component {
   }
 
   // FormTeam
-  handleClick(pokemon) {
+  handleClickCard(pokemon) {
     var arr = this.state.userPokemons;
     arr.push(pokemon);
     if (this.state.userPokemons.length <= 6) {
@@ -59,17 +61,54 @@ class App extends React.Component {
       };
     });
   }
+  handleClickOnHeader(Nav) {
+    console.log(Nav);
+
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        currentNav: Nav,
+      };
+    });
+  }
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <SubHeaderInfo />
+        <Header onClick={this.handleClickOnHeader} />
+
+        {/* subHeader unders the home tap */}
+        {this.state.currentNav === "Home" || this.state.currentNav === "" ? (
+          <SubHeaderInfo
+            title="Welcome to the Pokedex"
+            subTitle="  Your own team of pokemon by clicking, or by searching for their name or
+        id."
+          />
+        ) : null}
+
+        {/* subHeader unders the Form a Team tap */}
+        {this.state.currentNav === "Form a Team" &&
+        this.state.userPokemons.length < 6 ? (
+          <SubHeaderInfo
+            title="Choose Your Team by clicking or searching"
+            subTitle={6 - this.state.userPokemons.length}
+          />
+        ) : null}
+
+        {/* subHeader unders the Form a Team tap the team is already formed up */}
+        {this.state.currentNav === "Form a Team" &&
+        this.state.userPokemons.length >= 6 ? (
+          <SubHeaderInfo
+            title="Your Team"
+            subTitle={`Your team is made of ${this.state.userPokemons.length}`}
+          />
+        ) : null}
 
         <div id="grid">
-          {this.state.pokemons && this.state.userPokemons.length < 6
+          {this.state.pokemons &&
+          this.state.userPokemons.length < 6 &&
+          this.state.currentNav === "Form a Team"
             ? this.state.pokemons.map((item, index) => {
-                // console.log(item);
                 return (
                   <Card
                     key={index}
@@ -78,7 +117,7 @@ class App extends React.Component {
                     imgUrl={item.sprites.front_default}
                     HP={item.stats[5].base_stat}
                     ATK={item.stats[4].base_stat}
-                    onClick={this.handleClick}
+                    onClick={this.handleClickCard}
                   />
                 );
               })
