@@ -193,7 +193,9 @@ class App extends React.Component {
               })
             : null}
 
-          {this.state.userPokemons.length >= 6
+          {this.state.userPokemons.length >= 6 &&
+          this.state.currentNav !== "Search for Pokemon by ID" &&
+          this.state.currentNav !== "Search for Pokemon by Name"
             ? this.state.userPokemons.map((item, index) => {
                 console.log(item[0].name);
                 return (
