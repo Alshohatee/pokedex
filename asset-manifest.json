@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/pokdex/static/js/main.8255ccce.chunk.js",
-    "main.js.map": "/pokdex/static/js/main.8255ccce.chunk.js.map",
-    "runtime-main.js": "/pokdex/static/js/runtime-main.9c180c2d.js",
-    "runtime-main.js.map": "/pokdex/static/js/runtime-main.9c180c2d.js.map",
-    "static/js/2.d38c6a3e.chunk.js": "/pokdex/static/js/2.d38c6a3e.chunk.js",
-    "static/js/2.d38c6a3e.chunk.js.map": "/pokdex/static/js/2.d38c6a3e.chunk.js.map",
-    "index.html": "/pokdex/index.html",
-    "precache-manifest.1448319fc45b54fb5725c3e784834a25.js": "/pokdex/precache-manifest.1448319fc45b54fb5725c3e784834a25.js",
-    "service-worker.js": "/pokdex/service-worker.js",
-    "static/js/2.d38c6a3e.chunk.js.LICENSE.txt": "/pokdex/static/js/2.d38c6a3e.chunk.js.LICENSE.txt"
+    "main.js": "/pokedex/static/js/main.8255ccce.chunk.js",
+    "main.js.map": "/pokedex/static/js/main.8255ccce.chunk.js.map",
+    "runtime-main.js": "/pokedex/static/js/runtime-main.2d94522c.js",
+    "runtime-main.js.map": "/pokedex/static/js/runtime-main.2d94522c.js.map",
+    "static/js/2.d38c6a3e.chunk.js": "/pokedex/static/js/2.d38c6a3e.chunk.js",
+    "static/js/2.d38c6a3e.chunk.js.map": "/pokedex/static/js/2.d38c6a3e.chunk.js.map",
+    "index.html": "/pokedex/index.html",
+    "precache-manifest.efa334a1e0dcef949b5fba4efc99fe83.js": "/pokedex/precache-manifest.efa334a1e0dcef949b5fba4efc99fe83.js",
+    "service-worker.js": "/pokedex/service-worker.js",
+    "static/js/2.d38c6a3e.chunk.js.LICENSE.txt": "/pokedex/static/js/2.d38c6a3e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9c180c2d.js",
+    "static/js/runtime-main.2d94522c.js",
     "static/js/2.d38c6a3e.chunk.js",
     "static/js/main.8255ccce.chunk.js"
   ]
