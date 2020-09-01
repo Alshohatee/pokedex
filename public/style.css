@@ -40,3 +40,23 @@ h1 {
 }
 
 /********************************** something *********************/
+#grid {
+  display: grid;
+  opacity: 0.9;
+  grid-template: repeat(50, 200px) / repeat(3, 1fr);
+  grid-gap: 5px;
+  height: auto;
+  margin-top: 25px;
+  background-color: #afeeee;
+}
+
+#pokemon-item {
+  height: 97%;
+  border-radius: 25px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: #5f9ea0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  /* margin: 0 auto;/ */
+}
