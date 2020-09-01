@@ -2,15 +2,18 @@ import React from "react";
 import axios from "axios";
 import Header from "./Header";
 import Card from "./Card";
+import SubHeaderInfo from "./SubHeaderInfo";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       pokemons: [],
+      userPokemons: [],
     };
 
     this.fetchPokemonApi = this.fetchPokemonApi.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async fetchPokemonApi() {
@@ -28,33 +31,74 @@ class App extends React.Component {
         console.error(err);
       }
     }
-
-    // console.log(arr);
     console.log(this.state.pokemons);
   }
   componentDidMount() {
     this.fetchPokemonApi();
   }
 
+  // FormTeam
+  handleClick(pokemon) {
+    var arr = this.state.userPokemons;
+    arr.push(pokemon);
+    if (this.state.userPokemons.length <= 6) {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          userPokemons: arr,
+        };
+      });
+    }
+
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        pokemons: this.state.pokemons.filter((podex, index) => {
+          return index !== pokemon[0].id;
+        }),
+      };
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
+        <SubHeaderInfo />
 
         <div id="grid">
-          {this.state.pokemons
-            ? this.state.pokemons.map(function (item) {
-                console.log(item);
+          {this.state.pokemons && this.state.userPokemons.length < 6
+            ? this.state.pokemons.map((item, index) => {
+                // console.log(item);
                 return (
                   <Card
+                    key={index}
+                    id={index}
                     name={item.name}
                     imgUrl={item.sprites.front_default}
                     HP={item.stats[5].base_stat}
                     ATK={item.stats[4].base_stat}
+                    onClick={this.handleClick}
                   />
                 );
               })
-            : "null"}
+            : null}
+
+          {this.state.userPokemons.length >= 6
+            ? this.state.userPokemons.map((item, index) => {
+                console.log(item[0].name);
+                return (
+                  <Card
+                    key={index}
+                    id={index}
+                    name={item[0].name}
+                    imgUrl={item[0].imgUrl}
+                    HP={item[0].HP}
+                    ATK={item[0].ATK}
+                  />
+                );
+              })
+            : null}
         </div>
       </div>
     );
