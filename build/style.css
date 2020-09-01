@@ -97,6 +97,9 @@ input {
   text-align: center;
   cursor: pointer;
 }
+h5 {
+  color: white;
+}
 
 .info-img {
   width: 100%;
