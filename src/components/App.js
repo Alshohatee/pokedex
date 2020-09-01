@@ -147,12 +147,21 @@ class App extends React.Component {
         this.state.userPokemons.length < 6 ? (
           <SubHeaderInfo
             title="Choose Your Team by clicking or searching"
+            subTitle={`Left: ${6 - this.state.userPokemons.length}`}
+          />
+        ) : null}
+
+        {(this.state.currentNav === "Search for Pokemon by ID" ||
+          this.state.currentNav === "Search for Pokemon by Name") &&
+        this.state.userPokemons.length < 6 ? (
+          <SubHeaderInfo
+            title="Choose Your Team by clicking or searching"
             subTitle={6 - this.state.userPokemons.length}
           />
         ) : null}
 
         {/* subHeader unders the Form a Team tap the team is already formed up */}
-        {this.state.currentNav === "Form a Team" &&
+        {this.state.currentNav !== "Home" &&
         this.state.userPokemons.length === 6 ? (
           <SubHeaderInfo
             title="Your Team"
@@ -161,7 +170,8 @@ class App extends React.Component {
         ) : null}
 
         {/* subHeader unders the Search for Pokemon by Name */}
-        {this.state.currentNav === "Search for Pokemon by Name" ? (
+        {this.state.currentNav === "Search for Pokemon by Name" &&
+        this.state.userPokemons.length < 6 ? (
           <Form
             label="Enter the name: "
             name="name"
@@ -170,7 +180,8 @@ class App extends React.Component {
         ) : null}
 
         {/* subHeader unders the Search for Pokemon by id */}
-        {this.state.currentNav === "Search for Pokemon by ID" ? (
+        {this.state.currentNav === "Search for Pokemon by ID" &&
+        this.state.userPokemons.length < 6 ? (
           <Form label="Enter the ID: " name="id" onClick={this.addByNameOrId} />
         ) : null}
 
