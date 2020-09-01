@@ -4,16 +4,20 @@ function Card(props) {
   return (
     <div
       id="pokemon-item"
-      onClick={() => {
-        props.onClick([
-          {
-            id: props.id,
-            name: props.name,
-            imgUrl: props.imgUrl,
-            HP: props.HP,
-            ATK: props.ATK,
-          },
-        ]);
+      onClick={(e) => {
+        {
+          props.onClick
+            ? props.onClick([
+                {
+                  id: props.id,
+                  name: props.name,
+                  imgUrl: props.imgUrl,
+                  HP: props.HP,
+                  ATK: props.ATK,
+                },
+              ])
+            : e.preventDefault();
+        }
       }}
     >
       <img src={props.imgUrl} />

@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "./Header";
 import Card from "./Card";
 import SubHeaderInfo from "./SubHeaderInfo";
+import Form from "./Form";
 
 class App extends React.Component {
   constructor() {
@@ -16,6 +17,7 @@ class App extends React.Component {
     this.fetchPokemonApi = this.fetchPokemonApi.bind(this);
     this.handleClickCard = this.handleClickCard.bind(this);
     this.handleClickOnHeader = this.handleClickOnHeader.bind(this);
+    this.addByNameOrId = this.addByNameOrId.bind(this);
   }
 
   async fetchPokemonApi() {
@@ -41,6 +43,20 @@ class App extends React.Component {
 
   // FormTeam
   handleClickCard(pokemon) {
+    var alreadyAdded = false;
+    this.state.userPokemons.map((item) => {
+      console.log(item[0].id);
+      if (item[0].id === pokemon[0].id) {
+        alreadyAdded = true;
+
+        return;
+      }
+    });
+
+    if (alreadyAdded) {
+      return;
+    }
+
     var arr = this.state.userPokemons;
     arr.push(pokemon);
     if (this.state.userPokemons.length <= 6) {
@@ -61,6 +77,33 @@ class App extends React.Component {
       };
     });
   }
+
+  async addByNameOrId(value) {
+    if (this.state.userPokemons.length == 6) return;
+    var url = "";
+    if (typeof value === Number)
+      url = `https://fizal.me/pokeapi/api/v2/id/${value}.json`;
+    if (typeof value === String)
+      url = `https://fizal.me/pokeapi/api/v2/name/${value}.json`;
+    try {
+      let response = await axios({
+        method: "get",
+        url: `${url}`,
+      });
+      this.handleClickCard([
+        {
+          id: value,
+          name: response.data.name,
+          imgUrl: response.data.sprites.front_default,
+          HP: response.data.stats[5].base_stat,
+          ATK: response.data.stats[4].base_stat,
+        },
+      ]);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   handleClickOnHeader(Nav) {
     console.log(Nav);
 
@@ -97,11 +140,25 @@ class App extends React.Component {
 
         {/* subHeader unders the Form a Team tap the team is already formed up */}
         {this.state.currentNav === "Form a Team" &&
-        this.state.userPokemons.length >= 6 ? (
+        this.state.userPokemons.length == 6 ? (
           <SubHeaderInfo
             title="Your Team"
             subTitle={`Your team is made of ${this.state.userPokemons.length}`}
           />
+        ) : null}
+
+        {/* subHeader unders the Search for Pokemon by Name */}
+        {this.state.currentNav === "Search for Pokemon by Name" ? (
+          <Form
+            label="Enter the name: "
+            name="name"
+            onClick={this.addByNameOrId}
+          />
+        ) : null}
+
+        {/* subHeader unders the Search for Pokemon by id */}
+        {this.state.currentNav === "Search for Pokemon by ID" ? (
+          <Form label="Enter the ID: " name="id" onClick={this.addByNameOrId} />
         ) : null}
 
         <div id="grid">
