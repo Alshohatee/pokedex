@@ -5,6 +5,7 @@ import Card from "./Card";
 import SubHeaderInfo from "./SubHeaderInfo";
 import Form from "./Form";
 import Info from "./Info";
+import "./style.css";
 
 class App extends React.Component {
   constructor() {
